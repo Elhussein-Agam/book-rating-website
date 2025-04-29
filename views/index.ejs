@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Ratings</title>
+    <link rel="stylesheet" href="/public/styles.css">
+</head>
+<body>
+    <h1>My Book Ratings</h1>
+    <a href="/add">Add a New Book</a>
+    <div>
+        <% books.forEach(book => { %>
+            <div>
+                <h2><%= book.title %> by <%= book.author %></h2>
+                <p>Rating: <%= book.rating %>/5</p>
+                <% if (book.cover_url) { %>
+                    <img src="<%= book.cover_url %>" alt="Book Cover" width="100">
+                <% } %>
+                <p><strong>Description:</strong> <%= book.description || 'No description available.' %></p>
+                <form action="/delete/<%= book.id %>" method="POST">
+                    <a href="/edit/<%= book.id %>">Edit</a>
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+        <% }); %>
+    </div>
+</body>
+</html>

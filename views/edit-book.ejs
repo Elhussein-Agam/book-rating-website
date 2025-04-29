@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Book</title>
+</head>
+<body>
+    <h1>Edit Book</h1>
+    <form action="/edit/<%= book.id %>" method="POST">
+        <label>Title:</label>
+        <input type="text" name="title" value="<%= book.title %>" required>
+        <label>Author:</label>
+        <input type="text" name="author" value="<%= book.author %>">
+        <label>Rating (1-5):</label>
+        <input type="number" name="rating" min="1" max="5" value="<%= book.rating %>" required>
+        <label>ISBN:</label>
+        <input type="text" name="isbn" value="<%= book.isbn %>">
+        <button type="submit">Update Book</button>
+    </form>
+</body>
+</html>
